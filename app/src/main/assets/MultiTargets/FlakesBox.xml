@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<QCARConfig xsi:noNamespaceSchemaLocation="qcar_config.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Tracking>
+        <ImageTarget name="Box.Front" size="0.354695 0.054998"/>
+        <ImageTarget name="Box.Bottom" size="0.354695 0.260052"/>
+        <ImageTarget name="Box.Left" size="0.260000 0.054995"/>
+        <ImageTarget name="Box.Back" size="0.354695 0.055002"/>
+        <ImageTarget name="Box.Right" size="0.260000 0.055011"/>
+        <ImageTarget name="Box.Top" size="0.354695 0.260014"/>
+        <MultiTarget name="Box">
+            <Part name="Box.Front" translation="0 0 0.030" rotation="AD: 1 0 0 0"/>
+            <Part name="Box.Back" translation="0 0 -0.030" rotation="AD: 0 1 0 180"/>
+            <Part name="Box.Left" translation="-0.045 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Box.Right" translation="0.045 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Box.Top" translation="0 0.060 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Box.Bottom" translation="0 -0.060 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+    </Tracking>
+</QCARConfig>
