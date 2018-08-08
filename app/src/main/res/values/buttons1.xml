@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="icons1">
+        <item>@drawable/ic_home_white_24dp</item>
+        <item>@drawable/ic_search_white_24dp</item>
+        <item>@drawable/ic_notifications_white_24dp</item>
+        <item>@drawable/ic_settings_white_24dp</item>
+        <item>@drawable/ic_place_white_24dp</item>
+    </array>
+    <array name="colors1">
+        <item>@color/holo_blue_light1</item>
+        <item>@color/holo_green_dark1</item>
+        <item>@color/holo_red_light1</item>
+        <item>@color/holo_purple1</item>
+        <item>@color/holo_orange_light1</item>
+    </array>
+</resources>
