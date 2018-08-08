@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Vuforia</string>
-    <string name="app_description">Vuforia Sample Applications</string>
+    <string name="app_name">OnSwap</string>
+    <string name="app_description">Simplified Hardware Replacement</string>
     
     <string name="button_start">Start</string>
     <string name="activities_list_title_string">Vuforia Samples</string>
@@ -73,6 +73,99 @@
     <string name="menu_button_yellow">Yellow</string>
     <string name="menu_button_green">Green</string>
         
-    <string name="splash_screen_description">Vuforia Splash</string>
+    <string name="splash_screen_description">OnSwap Splash</string>
+
+    <string name="title_activity_welcome">Switches in network</string>
+    <string name="title_activity_login">Login Screen</string>
+    <string name="title_activity_Config">Config Screen</string>
+    <string name="title_activity_spec">Specifications</string>
+    <string name="title_activity_3d">Explore the Switch</string>
+    <string name="title_menu_config">Barcode Scanner</string>
+    <string name="admin_title">Admin Dashboard</string>
+    <string name="title_place_order">Place Order</string>
+    <string name="title_replace_order">How to replace hardware</string>
+
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Hello User!</string>
+    <string name="slide_1_desc">The easiest way to access and configure the switch!</string>
+
+    <string name="slide_2_title">HPE Switches</string>
+    <string name="slide_2_desc">Connect mobile to the same network of the switch!</string>
+
+    <string name="slide_3_title">Easy Config</string>
+    <string name="slide_3_desc">Easy to push the config to the switches!</string>
+
+    <string name="slide_4_title">Email</string>
+    <string name="slide_4_desc">Password</string>
+
+    <string name="refreshtmp">Start Begin</string>
+
+    <string name="scan">Scan devices</string>
+    <string name="net_swi">Scan Switches in your network</string>
+    <!-- Rest Get Urls for communicating-->
+
+    <!-- Rest POST Urls for communicating -->
+    <string name="locateled_url">/rest/v1/locator-led-blink</string>
+    <!-- Rest POST Urls params -->
+    <string name="located_led_blink">{\n\t\"led_blink_status\":true\n}</string>
+    <string name="located_led_off">{\n\t\"led_blink_status\":false\n}</string>
+    <string name="order_id_mock" translatable="false">Aruba HPE</string>
+    <string name="price_mock" translatable="false">$25</string>
+    <string name="requests_count_mock" translatable="false">5</string>
+    <string name="requests_count_badge" translatable="false">UP TIME</string>
+    <string name="weight_mock" translatable="false"> 0 </string>
+    <string name="weight_badge" translatable="false">Zone</string>
+    <string name="pledge_mock" translatable="false">$150</string>
+    <string name="pledge_badge" translatable="false"> </string>
+    <string name="sender_badge" translatable="false">Specification</string>
+    <string name="client_name_mock" translatable="false">Edward Norton</string>
+    <string name="rating_mock" translatable="false">(26)</string>
+    <string name="from_badge" translatable="false">View</string>
+    <string name="to_badge" translatable="false">TO</string>
+    <string name="delivery_date_badge" translatable="false">DELIVERY DATE</string>
+    <string name="delivery_time_mock" translatable="false">6:30 pm</string>
+    <string name="delivery_date_mock" translatable="false">May 16, 2016</string>
+    <string name="deadline_badge" translatable="false">REQUEST DEADLINE</string>
+    <string name="deadline_time_mock" translatable="false">24 minutes</string>
+    <string name="request_btn_text" translatable="false">CONFIG</string>
+    <string name="btn_annotation_mock" translatable="false">5 people have sent a request</string>
+    <string name="content_from1_mock">W 90th St</string>
+    <string name="content_from2_mock">New York, NY 10025</string>
+    <string name="content_to1_mock">46th Ave</string>
+    <string name="content_to2_mock">Woodside, NY 11101</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="or">or</string>
+    <string name="read_drive_link">script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=</string>
+    <string name="write_drive_link">script.google.com/macros/s/AKfycbyMp4D-vXPTnk2irjyhEKTEUbfhRTwE1tvAbwVqNqgJzh73YwVW/exec</string>
+    <string name="update_cell_link">script.google.com/macros/s/AKfycbx6JsZswTSqo6dyTNN_N6bkEaaQ4WwJf20vu_WyHlgjI6BOJEE/exec</string>
+    <string name="get_access_token_from_sheet">script.google.com/macros/s/AKfycbyj-wfwFp0w3KLkgJEA1UVzR7_1GXGxX9YzT4BSfY3wqlERuQI/exec?id=1eLKTlTgip_EfvlWANLvFgMJcoPgUQmS815DUH0DFlEE</string>
+    <string name="aruba_access_token">internal-apigw.central.arubanetworks.com/oauth2/authorize/central/api/login?client_id=</string>
+    <string name="aruba_get_switches">internal-apigw.central.arubanetworks.com/monitoring/v1/switches?access_token="</string>
+    <string name="google_sheet_id">1eLKTlTgip_EfvlWANLvFgMJcoPgUQmS815DUH0DFlEE</string>
+    <string name="sheet_num">Sheet1</string>
+    <string name="updating_job">Updating Job status please wait...</string>
+    <string name="wait">Please wait..."</string>
+    <string name="USERNAME">michaelpaulgilbert+hpteam@gmail.com</string>
+    <string name="api_gateway_url">https://internal-apigw.central.arubanetworks.com"</string>
+    <string name="auth_stage_one_url">/oauth2/authorize/central/api/login</string>
+    <string name="auth_stage_two_url">/oauth2/authorize/central/api</string>
+    <string name="auth_stage_three_url">/oauth2/token</string>
+    <string name="CLIENT_ID">ackcsUUFTjTFmSXwBhAp7lHfdyq8JpZs</string>
+    <string name="CLIENT_SECRET">99iCcBUY4ZwsggrnKgszr5PNE1Ri99WX</string>
+    <string name="CUSTOMER_ID">alpha2_sub_749</string>
+    <string name="PASSWORD">aruba@1234567</string>
+    <string name="HW_EVENTS">internal-apigw.central.arubanetworks.com/monitoring/v1/events?access_token=</string>
+    <string name="switch_serial_number">SG50GPR1J8</string>
     
 </resources>
