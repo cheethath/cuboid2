@@ -111,7 +111,7 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
         vuforiaAppSession = new SampleApplicationSession(this);
         
         startLoadingAnimation();
-        mDatasetStrings.add("StonesAndChips.xml");
+        mDatasetStrings.add("5400R_Fan.xml");
         mDatasetStrings.add("Tarmac.xml");
         
         vuforiaAppSession
@@ -185,11 +185,7 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
     
     private void loadTextures()
     {
-        mTextures.add(Texture.loadTextureFromApk("TextureTeapotBrass.png",
-            getAssets()));
-        mTextures.add(Texture.loadTextureFromApk("TextureTeapotBlue.png",
-            getAssets()));
-        mTextures.add(Texture.loadTextureFromApk("TextureTeapotRed.png",
+        mTextures.add(Texture.loadTextureFromApk("Hold_Still.png",
             getAssets()));
         mTextures.add(Texture.loadTextureFromApk("ImageTargets/Buildings.jpeg",
             getAssets()));
