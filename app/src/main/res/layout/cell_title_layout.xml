@@ -24,12 +24,13 @@
 
         <ImageView
             android:id="@+id/switch_imgView"
-            android:layout_width="78dp"
-            android:layout_height="47dp"
+            android:layout_width="81dp"
+            android:layout_height="55dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="0dp"
-            android:layout_marginStart="0dp" />
+            android:layout_marginStart="0dp"
+            android:adjustViewBounds="true"/>
         <!--
         <TextView
             android:id="@+id/title_price"

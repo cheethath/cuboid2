@@ -195,32 +195,41 @@
 
         <activity
             android:name="com.vuforia.samples.OnSwap.view3d"
-            android:label="@string/title_activity_3d" />
+            android:label="@string/title_activity_3d"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.vuforia.samples.OnSwap.Place_Order"
-            android:label="@string/title_place_order" />
+            android:label="@string/title_place_order"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.vuforia.samples.OnSwap.Operator_fix_order"
-            android:label="@string/title_replace_order" />
+            android:label="@string/title_replace_order"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.vuforia.samples.OnSwap.LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.vuforia.samples.OnSwap.Homescreen"
             android:label="@string/title_activity_welcome"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.vuforia.samples.OnSwap.Vsfview"
-            android:label="@string/title_activity_Config" />
+            android:label="@string/title_activity_Config"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.vuforia.samples.OnSwap.datasheet"
-            android:label="@string/title_activity_spec" />
+            android:label="@string/title_activity_spec"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.vuforia.samples.OnSwap.Admin_dashboard"
-            android:label="@string/admin_title" />
+            android:label="@string/admin_title"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.vuforia.samples.OnSwap.Barcode_scanner"
-            android:label="@string/title_menu_config" />
+            android:label="@string/title_menu_config"
+            android:screenOrientation="portrait"/>
         <service
             android:name="com.vuforia.samples.OnSwap.ListSwitchService"
             android:enabled="true"

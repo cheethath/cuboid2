@@ -13,12 +13,12 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="14dp"
         android:layout_marginTop="15dp"
-        android:src="@drawable/not_done" />
+        android:src="@drawable/led_up_down" />
 
     <TextView
         android:id="@+id/secondLine"
-        android:layout_width="306dp"
-        android:layout_height="26dp"
+        android:layout_width="289dp"
+        android:layout_height="28dp"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/firstLine"
         android:layout_marginBottom="12dp"
@@ -35,17 +35,31 @@
 
     <TextView
         android:id="@+id/firstLine"
-        android:layout_width="332dp"
-        android:layout_height="32dp"
-        android:layout_margin="12dp"
-        android:textColor="@color/black_overlay"
+        android:layout_width="296dp"
+        android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:layout_toRightOf="@+id/select_icon"
-        android:layout_marginTop="3dp"
         android:gravity="center_vertical"
         android:text="Example application"
-        android:textSize="18sp"
+        android:textColor="@color/black_overlay"
+        android:textSize="22sp"
         tools:ignore="RtlCompat" />
+
+    <ImageView
+        android:layout_width="19dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:src="@drawable/arrow" />
 
 </RelativeLayout>

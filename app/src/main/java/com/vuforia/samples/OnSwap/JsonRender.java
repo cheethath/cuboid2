@@ -25,6 +25,46 @@ public class JsonRender {
             R.drawable.swi_3810m,
             R.drawable.swi_5400,
     };
+    static int[] swi_bond = new int[]{
+            R.drawable.jl071a,
+            R.drawable.jl072a,
+            R.drawable.jl073a,
+            R.drawable.jl074a,
+            R.drawable.jl075a,
+            R.drawable.jl076a,
+            R.drawable.jl428a,
+            R.drawable.jl429a,
+            R.drawable.jl430a,
+    };
+    static int[] swi_bolt = new int[]{
+            R.drawable.j9821a,
+            R.drawable.j9822a,
+            R.drawable.j9850a,
+        };
+    static int[] swi_santorini = new int[]{
+            R.drawable.jl253a,
+            R.drawable.jl254a,
+            R.drawable.jl255a,
+            R.drawable.jl256a,
+            R.drawable.jl258a,
+            R.drawable.jl259a,
+            R.drawable.jl260a,
+            R.drawable.jl261a,
+            R.drawable.jl262a,
+            R.drawable.jl263a,
+            R.drawable.jl264a,
+            R.drawable.jl557a,
+            R.drawable.jl558a,
+            R.drawable.jl559a,
+    };
+    static int[] swi_lava = new int[]{
+            R.drawable.jl319a,
+            R.drawable.jl320a,
+            R.drawable.jl321a,
+            R.drawable.jl322a,
+            R.drawable.jl323a,
+            R.drawable.jl324a,
+    };
     public static final String  ARUBA_SWITCHES = "switches";
     public class Keys {
         public static final String KEY_CONTACTS = "Sheet1";
@@ -33,10 +73,10 @@ public class JsonRender {
 
     }
 
-    static String[] islava = new String[]{"JL320A", "JL322A", "JL323A","JL324A","JL992A","JL993A"};
-    static String[] issantorini = new String[]{"JL257A","JL258A","JL253A","JL254A","JL255A","JL256A","JL259A","JL260A","JL261A","JL262A","JL558A","JL557A"};
-    static String[] isbond = new String[]{"JL074A","JL073A","JL076A","JL072A","JL071A","JL075A","JL077A"};
-    static String[] isbolt = new String[]{"J9821A","J9822A"};
+    static String[] islava = new String[]{"JL319A", "JL320A", "JL321A","JL322A","JL323A","JL324A"};
+    static String[] issantorini = new String[]{"JL253A","JL254A","JL255A","JL256A","JL258A","JL259A","JL260A","JL261A","JL262A","JL263A","JL264A","JL557A","JL558A","JL559A"};
+    static String[] isbond = new String[]{"JL071A","JL072A","JL073A","JL074A","JL075A","JL076A","JL428A","JL429A","JL430A"};
+    static String[] isbolt = new String[]{"J9821A","J9822A","J9850A"};
     public static List<String> islavalist = Arrays.asList(islava);
     public static List<String> issantorinilist = Arrays.asList(issantorini);
     public static List<String> isbondlist = Arrays.asList(isbond);
@@ -106,6 +146,7 @@ public class JsonRender {
         String serial_number = null;
         String status = null;
         String location = null;
+        int img_index;
         ArrayList<Item> items = Item.getTestingList();
         int jIndex = 0;
         if (jsonStr != null) {
@@ -118,6 +159,7 @@ public class JsonRender {
                 if (lenArray > 0) {
                     for (; jIndex < lenArray; jIndex++) {
                         returnList = new HashMap<>();
+                        boolean is_product_match=false;
                         /**
                          * Getting Inner Object from contacts array...
                          * and
@@ -132,23 +174,33 @@ public class JsonRender {
                         status = innerObject.getString("status");
                         serial_number = innerObject.getString("serial_number");
                         location = innerObject.getString("location");
-                        if(product_number == null || product_name == null ||  mac_address == null || serial_number == null || status == null)
+                        if(product_number == null || product_name == null ||  mac_address == null || serial_number == null || status == null || location==null)
                             continue;
+
+                        img_index = 0;
+                        if (issantorinilist.contains(product_number)) {
+                              is_product_match = true;
+                               img_index = issantorinilist.indexOf(product_number);
+                               returnList.put("product_image", Integer.toString(swi_santorini[img_index]));
+                        } else if (islavalist.contains(product_number)) {
+                            is_product_match = true;
+                               img_index = islavalist.indexOf(product_number);
+                               returnList.put("product_image", Integer.toString(swi_lava[img_index]));
+                        } else if (isbondlist.contains(product_number)) {
+                            is_product_match = true;
+                               img_index = isbondlist.indexOf(product_number);
+                               returnList.put("product_image", Integer.toString(swi_bond[img_index]));
+                        } else if (isboltlist.contains(product_number)) {
+                            is_product_match = true;
+                               img_index = isboltlist.indexOf(product_number);
+                               returnList.put("product_image", Integer.toString(swi_bolt[img_index]));
+                        }
                         returnList.put("mac_address", mac_address);
                         returnList.put("faulttype", fault_state);
                         returnList.put("product_name", product_name);
                         returnList.put("product_number", product_number);
                         returnList.put("status", status);
                         returnList.put("stack_or_not", "");
-                        if (issantorinilist.contains(product_number)) {
-                               returnList.put("product_image", Integer.toString(swi_img[0]));
-                        } else if (islavalist.contains(product_number)) {
-                               returnList.put("product_image", Integer.toString(swi_img[1]));
-                        } else if (isbondlist.contains(product_number)) {
-                               returnList.put("product_image", Integer.toString(swi_img[2]));
-                        } else if (isboltlist.contains(product_number)) {
-                               returnList.put("product_image", Integer.toString(swi_img[3]));
-                        }
                         returnList.put("serial_number", serial_number);
                         returnList.put("stack_or_not", "");
                         returnList.put("location",location);
@@ -175,7 +227,7 @@ public class JsonRender {
         String serial_number = null;
         String location = null;
         String status = null;
-        int i = 0;
+        int i = 0,img_index;
         ArrayList<Item> items = Item.getTestingList();
         int jIndex = 0;
         if (jsonStr != null) {
@@ -198,26 +250,33 @@ public class JsonRender {
                         JSONObject innerObject = array.getJSONObject(jIndex);
                         product_name = innerObject.getString("name");
                         product_number = innerObject.getString("model");
-                        product_number = product_number.replaceFirst("^.*?Switch([^)]+).*$","$1");
-
-                        product_number=product_number.replace("(","");
                         mac_address = innerObject.getString("macaddr");
                         serial_number = innerObject.getString("serial");
                         status = innerObject.getString("status");
                         if(product_number == null || product_name == null ||  mac_address == null || serial_number == null || status == null)
                             continue;
+                        if(product_number.contains("5406Rzl2"))
+                            product_number = product_number.replaceFirst("^.*?5406Rzl2([^)]+).*$","$1");
+                        else
+                            product_number = product_number.replaceFirst("^.*?Switch([^)]+).*$","$1");
+                        product_number=product_number.replace("(","");
+                        img_index = 0;
                         if (issantorinilist.contains(product_number)) {
+                            img_index = issantorinilist.indexOf(product_number);
+                            returnList.put("product_image", Integer.toString(swi_santorini[img_index]));
                             is_product_match = true;
-                            returnList.put("product_image", Integer.toString(swi_img[0]));
                         } else if (islavalist.contains(product_number)) {
+                            img_index = islavalist.indexOf(product_number);
+                            returnList.put("product_image", Integer.toString(swi_lava[img_index]));
                             is_product_match = true;
-                            returnList.put("product_image", Integer.toString(swi_img[1]));
                         } else if (isbondlist.contains(product_number)) {
+                            img_index = isbondlist.indexOf(product_number);
+                            returnList.put("product_image", Integer.toString(swi_bond[img_index]));
                             is_product_match = true;
-                            returnList.put("product_image", Integer.toString(swi_img[2]));
                         } else if (isboltlist.contains(product_number)) {
+                            img_index = isboltlist.indexOf(product_number);
+                            returnList.put("product_image", Integer.toString(swi_bolt[img_index]));
                             is_product_match = true;
-                            returnList.put("product_image", Integer.toString(swi_img[3]));
                         }
                         if(!is_product_match)
                             continue;
@@ -229,15 +288,6 @@ public class JsonRender {
                         returnList.put("product_number", product_number);
                         returnList.put("status", status);
                         returnList.put("stack_or_not", "");
-                        if (issantorinilist.contains(product_number)) {
-                            returnList.put("product_image", Integer.toString(swi_img[0]));
-                        } else if (islavalist.contains(product_number)) {
-                            returnList.put("product_image", Integer.toString(swi_img[1]));
-                        } else if (isbondlist.contains(product_number)) {
-                            returnList.put("product_image", Integer.toString(swi_img[2]));
-                        } else if (isboltlist.contains(product_number)) {
-                            returnList.put("product_image", Integer.toString(swi_img[3]));
-                        }
                         if(i%2==0)
                             returnList.put("location","woodstock");
                         else

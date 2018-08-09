@@ -182,7 +182,7 @@ public class writegooglesheet extends AsyncTask<String, Void, String> {
             postDataParams.put("cell",Column_name);
             Log.d(TAG,"Url"+Url+"column"+Column_name);
             if(User_name.contains("admin"))
-                postDataParams.put("update_value","Fan Fault");
+                postDataParams.put("update_value","Power Fault");
             else
                 postDataParams.put("update_value","");
             postDataParams.put("id",sheet_id);

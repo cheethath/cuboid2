@@ -98,7 +98,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
         //viewHolder.price.setText(item.getPrice());
         viewHolder.jltype.setText(item.getJltype());
 
-        String swi_family = "Explore the Switch "+ item.getFaulttype();
+        String swi_family = "Explore the Switch in 3d view";
 
         viewHolder.content_to_address_1.setText(swi_family);
         viewHolder.swi_num.setText(item.getJltype());
@@ -107,9 +107,9 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
         viewHolder.content_name_view.setText(item.getSwitch_name());
         viewHolder.switch_name.setText(item.getSwitch_name());
         viewHolder.mac_address.setText(item.getMac_address());
-        String uptime = String.format("%d hours",item.getRequestsCount());
-        viewHolder.requestsCount.setText(uptime);
-        viewHolder.head_image_left_text.setText(uptime);
+        String mac = item.getMac_address();
+        viewHolder.requestsCount.setText(mac);
+        viewHolder.head_image_left_text.setText(mac);
         viewHolder.head_image_center_text.setText(item.getPledgePrice());
         viewHolder.pledgePrice.setText(item.getPledgePrice());
      //   if(Homescreen.User_name.contains("oper"))

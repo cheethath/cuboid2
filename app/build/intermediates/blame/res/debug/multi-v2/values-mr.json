@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\sreenath\\Documents\\Vuforia_Android\\cuboid2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
+            "outputFile": "C:\\Users\\sgna\\Documents\\OnSwap_Latest\\OnSwap\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\sreenath\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.1.0.aar\\ae4569add2dd5719153a34d100aad857\\res\\values-mr\\values.xml",
+                    "source": "C:\\Users\\sgna\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.1.0.aar\\6cbbe02b32944faab7deefbf6789cad0\\res\\values-mr\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8",
                         "startColumns": "0,0,0,0,0",
@@ -15,9 +15,77 @@
                     "to": {
                         "startLines": "2,3,4,5,6",
                         "startColumns": "4,4,4,4,4",
-                        "startOffsets": "55,108,164,266,373",
+                        "startOffsets": "105,158,214,316,423",
                         "endColumns": "52,55,101,106,71",
-                        "endOffsets": "103,159,261,368,440"
+                        "endOffsets": "153,209,311,418,490"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\sgna\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.0.2.aar\\c5fda49f5a37a21f5ed6aca0fbfbefdf\\res\\values-mr\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "201",
+                        "endOffsets": "486"
+                    },
+                    "to": {
+                        "startLines": "31",
+                        "startColumns": "4",
+                        "startOffsets": "3259",
+                        "endColumns": "201",
+                        "endOffsets": "3456"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\sgna\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.0.2.aar\\13fcf30893bcaa482b34d3581e0aa34b\\res\\values-mr\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,389,585,707,817,1021,1140,1265,1473,1582,1767,1892,2093,2275,2361,2453",
+                        "endColumns": "105,195,121,109,203,118,124,207,108,184,124,200,181,85,91,105",
+                        "endOffsets": "388,584,706,816,1020,1139,1264,1472,1581,1766,1891,2092,2274,2360,2452,2558"
+                    },
+                    "to": {
+                        "startLines": "24,25,26,27,28,29,30,32,33,34,35,36,37,38,39,40",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2257,2367,2563,2689,2803,3007,3130,3461,3669,3782,3967,4096,4297,4483,4573,4669",
+                        "endColumns": "109,195,125,113,203,122,128,207,112,184,128,200,185,89,95,109",
+                        "endOffsets": "2362,2558,2684,2798,3002,3125,3254,3664,3777,3962,4091,4292,4478,4568,4664,4774"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\sgna\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f0c718a68af16fcac041205121c4d6c9\\res\\values-mr\\values-mr.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,216,322,429,519,620,735,812,890,970,1082,1184,1280,1389,1490,1605,1762,1867",
+                        "endColumns": "110,105,106,89,100,114,76,77,79,111,101,95,108,100,114,156,104,79",
+                        "endOffsets": "211,317,424,514,615,730,807,885,965,1077,1179,1275,1384,1485,1600,1757,1862,1942"
+                    },
+                    "to": {
+                        "startLines": "7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "495,606,712,819,909,1010,1125,1202,1280,1360,1472,1574,1670,1779,1880,1995,2152,4779",
+                        "endColumns": "110,105,106,89,100,114,76,77,79,111,101,95,108,100,114,156,104,79",
+                        "endOffsets": "601,707,814,904,1005,1120,1197,1275,1355,1467,1569,1665,1774,1875,1990,2147,2252,4854"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\sgna\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\420a773c70e43e02d8887e805ea1b2f4\\res\\values-mr\\values-mr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "42",
+                        "startColumns": "4",
+                        "startOffsets": "4859",
+                        "endColumns": "100",
+                        "endOffsets": "4955"
                     }
                 }
             ]

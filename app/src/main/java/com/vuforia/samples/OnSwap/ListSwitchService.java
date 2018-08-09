@@ -171,8 +171,6 @@ public class ListSwitchService extends Service {
                 String https_str = "https://";
                 String rest_url;
                 if(access_token == null) {
-                    Log.d(TAG, "Deleting switches in the google sheet url");
-                    httpHandler.deleteExcelSheet();
                     init_state=true;
                 }
                 if(access_token==null || !access_token.isEmpty()) {
@@ -230,8 +228,11 @@ public class ListSwitchService extends Service {
                                     HashMap<String, String> switch_list = switchList.get(i);
                                     if (switch_list.get("serial_number").contains(getString(R.string.switch_serial_number))) {
                                         send_notify = true;
+                                        switch_list.put("faulttype","Power Fault");
+                                        switchList.set(i,switch_list);
                                         /* Need to add in product */
-                                        //new writegooglesheet(switch_list,i,User_name,"open",getApplicationContext()).execute();
+                                        Toast.makeText(getApplicationContext(), "Will Notify the fault sheet", Toast.LENGTH_SHORT).show();
+                                   //     new writegooglesheet(switch_list,i,User_name,"open",getApplicationContext()).execute();
                                         break;
                                     }
                                 }
@@ -315,7 +316,9 @@ public class ListSwitchService extends Service {
                     break;
                 } else {
                     if (!previous_swilist.get(i).get("faulttype").contains(switchList.get(i).get("faulttype"))) {
-                        if (!switchList.get(i).get("faulttype").isEmpty())
+                        if((User_name.equals("oper") && previous_swilist.get(i).get("location").contains("midtown") ||
+                          User_name.equals("oper1") && previous_swilist.get(i).get("location").contains("woodstock")) &&
+                           !switchList.get(i).get("faulttype").isEmpty())
                             break;
                         else
                             return false;
@@ -357,14 +360,12 @@ public class ListSwitchService extends Service {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, ii, 0);
 
         NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
-        bigText.bigText("HW FAILURE");
-        bigText.setBigContentTitle("HW Failure in some of the switch");
-        bigText.setSummaryText("Go through the app to verify which switchd got failure");
+        bigText.bigText("Aruba notified a switch has reported fault");
+        bigText.setBigContentTitle("Aruba Hw Failure");
+        bigText.setSummaryText("To verify the switch fault launch OnSwap App");
 
         mBuilder.setContentIntent(pendingIntent);
-        mBuilder.setSmallIcon(R.mipmap.ic_launcher);
-        mBuilder.setContentTitle("HW Failure");
-        mBuilder.setContentText("Go and see");
+        mBuilder.setSmallIcon(R.drawable.notify_logo);
         mBuilder.setPriority(Notification.PRIORITY_MAX);
         mBuilder.setStyle(bigText);
 

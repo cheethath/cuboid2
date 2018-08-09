@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/OnSwap.iml" filepath="$PROJECT_DIR$/OnSwap.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/cuboid2.iml" filepath="$PROJECT_DIR$/cuboid2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/circle-menu-0.3.1/circle-menu-0.3.1.iml" filepath="$PROJECT_DIR$/circle-menu-0.3.1/circle-menu-0.3.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/folding-cell-1.2.2/folding-cell-1.2.2.iml" filepath="$PROJECT_DIR$/folding-cell-1.2.2/folding-cell-1.2.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/navigation-toolbar-0.1.0/navigation-toolbar-0.1.0.iml" filepath="$PROJECT_DIR$/navigation-toolbar-0.1.0/navigation-toolbar-0.1.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recyclerview-v7-27.1.1/recyclerview-v7-27.1.1.iml" filepath="$PROJECT_DIR$/recyclerview-v7-27.1.1/recyclerview-v7-27.1.1.iml" />
     </modules>
   </component>
 </project>

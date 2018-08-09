@@ -9,6 +9,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/circle-menu-0.3.1" />
+            <option value="$PROJECT_DIR$/folding-cell-1.2.2" />
+            <option value="$PROJECT_DIR$/navigation-toolbar-0.1.0" />
+            <option value="$PROJECT_DIR$/recyclerview-v7-27.1.1" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

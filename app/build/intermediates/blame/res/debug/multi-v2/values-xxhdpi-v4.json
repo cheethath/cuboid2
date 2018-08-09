@@ -1,23 +1,40 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\sreenath\\Documents\\Vuforia_Android\\cuboid2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xxhdpi-v4\\values-xxhdpi-v4.xml",
+            "outputFile": "C:\\Users\\sgna\\Documents\\OnSwap_Latest\\OnSwap\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xxhdpi-v4\\values-xxhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\sreenath\\Documents\\Vuforia_Android\\cuboid2\\app\\src\\main\\res\\values-xxhdpi\\dimens.xml",
+                    "source": "C:\\Users\\sgna\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.9.aar\\56cd76bcb710dfb4f65c548df1891224\\res\\values-xxhdpi-v4\\values-xxhdpi-v4.xml",
                     "from": {
-                        "startLines": "3,4",
-                        "startColumns": "4,4",
-                        "startOffsets": "56,104",
-                        "endColumns": "47,48",
-                        "endOffsets": "99,148"
-                    },
-                    "to": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
-                        "startOffsets": "55,103",
-                        "endColumns": "47,48",
-                        "endOffsets": "98,147"
+                        "startOffsets": "55,114",
+                        "endColumns": "58,55",
+                        "endOffsets": "109,165"
+                    },
+                    "to": {
+                        "startLines": "5,6",
+                        "startColumns": "4,4",
+                        "startOffsets": "210,269",
+                        "endColumns": "58,55",
+                        "endOffsets": "264,320"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\sgna\\Documents\\OnSwap_Latest\\OnSwap\\app\\src\\main\\res\\values-xxhdpi\\dimens.xml",
+                    "from": {
+                        "startLines": "6,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "160,59,108",
+                        "endColumns": "57,47,48",
+                        "endOffsets": "213,102,152"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,113,161",
+                        "endColumns": "57,47,48",
+                        "endOffsets": "108,156,205"
                     }
                 }
             ]

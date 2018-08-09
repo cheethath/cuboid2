@@ -39,6 +39,9 @@ public class Admin_dashboard extends AppCompatActivity {
     LinearLayout overall_layout,live_layout,nonlive_layout,hwfail_layout;
     TranslateAnimation anime_over,anime_live,anime_dead,anime_fail;
     ArrayList<HashMap<String,String>> Swi_list;
+    Integer nosswi=0;
+    Integer hw_fil=0;
+    Integer up = 0 , down = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,12 +86,12 @@ public class Admin_dashboard extends AppCompatActivity {
     private void prepare_elements_to_display_admin_service(Intent intent) {
         overall_layout.setVisibility(View.VISIBLE);
         live_layout.setVisibility(View.VISIBLE);
-        Integer up = 0 , down = 0;
+
         Swi_list = (ArrayList<HashMap<String,String>>) intent.getSerializableExtra("SWI_LIST");
         Log.d(TAG,"swilist"+ Swi_list);
         if(Swi_list == null)
             return;
-        Integer nosswi = Swi_list.size();
+        nosswi = Swi_list.size();
         up=nosswi;
         String no_of_swi = nosswi.toString();
         for (int i = 0; i < Swi_list.size(); i++) {
@@ -102,11 +105,13 @@ public class Admin_dashboard extends AppCompatActivity {
             {
                 up--;
             }
+            if(!switch_list.get("faulttype").isEmpty()){
+                hw_fil++;
+            }
         }
         down=nosswi-up;
         String swi_up = up.toString();
         String swi_dwn = down.toString();
-        Integer hw_fil = nosswi - (up + down);
         String hw_fail = hw_fil.toString();
         overall.setText(no_of_swi);
         live.setText(swi_up);
@@ -149,7 +154,7 @@ public class Admin_dashboard extends AppCompatActivity {
     }
 
     public void Overall_Invoke(View view) {
-        if(list_of_type!=null) {
+        if(list_of_type!=null && nosswi > 0) {
             Intent usr = new Intent(Admin_dashboard.this, Homescreen.class);
             usr.putExtra("STATE", "Overall");
             usr.putExtra("SWI_LIST", list_of_type);
@@ -159,7 +164,7 @@ public class Admin_dashboard extends AppCompatActivity {
     }
 
     public void Live_Switch(View view) {
-        if(list_of_type!=null) {
+        if(list_of_type!=null && up > 0) {
             Intent usr = new Intent(Admin_dashboard.this, Homescreen.class);
             usr.putExtra("STATE", "Up");
             usr.putExtra("SWI_LIST", list_of_type);
@@ -168,7 +173,7 @@ public class Admin_dashboard extends AppCompatActivity {
         }
     }
     public void NonLive_Switch(View view) {
-        if(list_of_type!=null) {
+        if(list_of_type!=null && down > 0) {
             Intent usr = new Intent(Admin_dashboard.this, Homescreen.class);
             usr.putExtra("STATE", "Down");
             usr.putExtra("SWI_LIST", list_of_type);
@@ -179,7 +184,7 @@ public class Admin_dashboard extends AppCompatActivity {
     public void Failure_Invoke(View view) {
         boolean i = false;
         if (i) {
-            if (list_of_type != null) {
+            if (list_of_type != null && hw_fil>0) {
                 Intent usr = new Intent(Admin_dashboard.this, Homescreen.class);
                 usr.putExtra("STATE", "Down");
                 usr.putExtra("SWI_LIST", list_of_type);

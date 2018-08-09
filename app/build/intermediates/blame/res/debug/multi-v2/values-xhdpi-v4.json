@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\sreenath\\Documents\\Vuforia_Android\\cuboid2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+            "outputFile": "C:\\Users\\sgna\\Documents\\OnSwap_Latest\\OnSwap\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\sreenath\\Documents\\Vuforia_Android\\cuboid2\\app\\src\\main\\res\\values-xhdpi\\dimens.xml",
+                    "source": "C:\\Users\\sgna\\Documents\\OnSwap_Latest\\OnSwap\\app\\src\\main\\res\\values-xhdpi\\dimens.xml",
                     "from": {
                         "startLines": "3,4",
                         "startColumns": "4,4",
-                        "startOffsets": "56,105",
+                        "startOffsets": "59,109",
                         "endColumns": "48,48",
-                        "endOffsets": "100,149"
+                        "endOffsets": "103,153"
                     },
                     "to": {
                         "startLines": "2,3",
@@ -18,6 +18,23 @@
                         "startOffsets": "55,104",
                         "endColumns": "48,48",
                         "endOffsets": "99,148"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\sgna\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.9.aar\\56cd76bcb710dfb4f65c548df1891224\\res\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,113",
+                        "endColumns": "57,55",
+                        "endOffsets": "108,164"
+                    },
+                    "to": {
+                        "startLines": "4,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "153,211",
+                        "endColumns": "57,55",
+                        "endOffsets": "206,262"
                     }
                 }
             ]

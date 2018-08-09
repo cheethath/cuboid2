@@ -165,8 +165,6 @@ Homescreen extends AppCompatActivity {
                     pDialog.show();
                 }
             } else if (User_name.contains("admin")) {
-                //   setContentView(R.layout.admin_dashboaard);
-                Toast.makeText(getApplicationContext(), "User is selected admin so contents are static to display the view", Toast.LENGTH_SHORT).show();
                 ArrayList<HashMap<String, String>> Swi_list = (ArrayList<HashMap<String, String>>) getIntent().getSerializableExtra("SWI_LIST");
                 String show_state = extras.getString("STATE");
                 if(Swi_list != null) {
@@ -185,7 +183,7 @@ Homescreen extends AppCompatActivity {
                         } else if (show_state.contains("Down") && switch_list.get("status").contains("Up")) {
                             continue;
                         }
-                        swi_items.add(new Item(swi_image, "6 mins", switch_list.get("product_name"), switch_list.get("mac_address"), 0,
+                        swi_items.add(new Item(swi_image, "      ", switch_list.get("product_name"), switch_list.get("mac_address"), 0,
                                 switch_list.get("product_name"), switch_list.get("product_number"), switch_list.get("faulttype"), switch_list.get("status"),switch_list.get("location")));
                     }
                     if(adapter != null)
@@ -269,7 +267,7 @@ Homescreen extends AppCompatActivity {
                     }
                 }
             int swi_image = Integer.parseInt(switch_list.get("product_image"));
-            swi_items.add(new Item(swi_image, "6 mins", switch_list.get("product_name"), switch_list.get("mac_address"), 0,
+            swi_items.add(new Item(swi_image, "      ", switch_list.get("product_name"), switch_list.get("mac_address"), 0,
                     switch_list.get("product_name"), switch_list.get("product_number"),switch_list.get("faulttype"),switch_list.get("status"),switch_list.get("location")));
 
         }

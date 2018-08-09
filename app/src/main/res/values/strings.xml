@@ -116,7 +116,7 @@
     <string name="order_id_mock" translatable="false">Aruba HPE</string>
     <string name="price_mock" translatable="false">$25</string>
     <string name="requests_count_mock" translatable="false">5</string>
-    <string name="requests_count_badge" translatable="false">UP TIME</string>
+    <string name="requests_count_badge" translatable="false">MAC ADDRESS</string>
     <string name="weight_mock" translatable="false"> 0 </string>
     <string name="weight_badge" translatable="false">Zone</string>
     <string name="pledge_mock" translatable="false">$150</string>
@@ -126,9 +126,8 @@
     <string name="rating_mock" translatable="false">(26)</string>
     <string name="from_badge" translatable="false">View</string>
     <string name="to_badge" translatable="false">TO</string>
-    <string name="delivery_date_badge" translatable="false">DELIVERY DATE</string>
-    <string name="delivery_time_mock" translatable="false">6:30 pm</string>
-    <string name="delivery_date_mock" translatable="false">May 16, 2016</string>
+    <string name="delivery_date_badge" translatable="false">Serial Number</string>
+    <string name="delivery_time_mock" translatable="false">SG6787F</string>
     <string name="deadline_badge" translatable="false">REQUEST DEADLINE</string>
     <string name="deadline_time_mock" translatable="false">24 minutes</string>
     <string name="request_btn_text" translatable="false">CONFIG</string>
