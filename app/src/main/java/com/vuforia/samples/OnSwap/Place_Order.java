@@ -58,7 +58,8 @@ public class Place_Order extends AppCompatActivity {
             }
         }, 3000); // 3000 milliseconds delay
 
-        Intent intent = new Intent(this, com.vuforia.samples.VuforiaSamples.ui.ActivityList.ActivitySplashScreen.class);
+        //Intent intent = new Intent(this, com.vuforia.samples.VuforiaSamples.ui.ActivityList.ActivitySplashScreen.class);
+        Intent intent = new Intent(this, com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets.class);
 
         startActivity(intent);
     }
