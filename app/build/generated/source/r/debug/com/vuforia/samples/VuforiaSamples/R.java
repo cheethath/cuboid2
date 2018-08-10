@@ -2174,7 +2174,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td></td></tr>
+     * <tr><td>direct</td><td>1</td><td>for now only direct & barriers</td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>3</td><td></td></tr>
      * </table>
@@ -4033,10 +4033,9 @@ public final class R {
     public static final int swi_2930m=0x7f0800ef;
     public static final int swi_3810m=0x7f0800f0;
     public static final int swi_5400=0x7f0800f1;
-    public static final int swi_j9850a=0x7f0800f2;
-    public static final int tooltip_frame_dark=0x7f0800f3;
-    public static final int tooltip_frame_light=0x7f0800f4;
-    public static final int vuforia_splash=0x7f0800f5;
+    public static final int tooltip_frame_dark=0x7f0800f2;
+    public static final int tooltip_frame_light=0x7f0800f3;
+    public static final int vuforia_splash=0x7f0800f4;
   }
   public static final class id {
     public static final int ALT=0x7f090000;
@@ -9957,7 +9956,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td></td></tr>
+     * <tr><td>direct</td><td>1</td><td>for now only direct & barriers</td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>3</td><td></td></tr>
      * </table>

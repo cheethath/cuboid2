@@ -78,6 +78,7 @@ public class Place_Order extends AppCompatActivity {
         pDialog.setCancelable(false);
         pDialog.show();
         notify.setEnabled(false);
+        placeorder1.setEnabled(false);
         notify.setBackgroundColor(Color.GRAY);
         new writegooglesheet(switch_list,index,User_name,"open",getApplicationContext()).execute();
         handler.postDelayed(new Runnable() {
