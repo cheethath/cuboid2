@@ -183,7 +183,9 @@ Homescreen extends AppCompatActivity {
                         } else if (show_state.contains("Down") && switch_list.get("status").contains("Up")) {
                             continue;
                         }
-                        swi_items.add(new Item(swi_image, "      ", switch_list.get("product_name"), switch_list.get("mac_address"), 0,
+                        if(show_state.contains("Failure") && switch_list.get("faulttype").isEmpty())
+                            continue;
+                        swi_items.add(new Item(swi_image, switch_list.get("serial_number"), switch_list.get("product_name"), switch_list.get("mac_address"), 0,
                                 switch_list.get("product_name"), switch_list.get("product_number"), switch_list.get("faulttype"), switch_list.get("status"),switch_list.get("location")));
                     }
                     if(adapter != null)
@@ -194,7 +196,6 @@ Homescreen extends AppCompatActivity {
                     } else {
                         adapter = new FoldingCellListAdapter(this, swi_items);
                     }
-
                     switchList = Swi_list;
                     prepare_elements_to_display(Swi_list, swi_items);
                 }
@@ -267,7 +268,7 @@ Homescreen extends AppCompatActivity {
                     }
                 }
             int swi_image = Integer.parseInt(switch_list.get("product_image"));
-            swi_items.add(new Item(swi_image, "      ", switch_list.get("product_name"), switch_list.get("mac_address"), 0,
+            swi_items.add(new Item(swi_image, switch_list.get("serial_number"), switch_list.get("product_name"), switch_list.get("mac_address"), 0,
                     switch_list.get("product_name"), switch_list.get("product_number"),switch_list.get("faulttype"),switch_list.get("status"),switch_list.get("location")));
 
         }
@@ -312,11 +313,15 @@ Homescreen extends AppCompatActivity {
                         //menu.setVisibility(View.VISIBLE);
                         //menu.open(true);
                         if(User_name.contains("admin")) {
-                           Intent usr = new Intent(Homescreen.this, Place_Order.class);
-                            usr.putExtra("USER", User_name);
-                            usr.putExtra("SWI_LIST",Swilist);
-                            usr.putExtra("Index",i);
-                            startActivity(usr);
+                            if(!swiitems.get(index).getFaulttype().isEmpty()) {
+                                Intent usr = new Intent(Homescreen.this, Place_Order.class);
+                                usr.putExtra("USER", User_name);
+                                usr.putExtra("SWI_LIST", Swilist);
+                                usr.putExtra("Index", i);
+                                startActivity(usr);
+                            }  else {
+                                Toast.makeText(getApplicationContext(), "This option is used for Hardware Failure report to operator", Toast.LENGTH_SHORT).show();
+                            }
                         }else {
                             if(!swiitems.get(index).getFaulttype().isEmpty()) {
                                 Intent usr = new Intent(Homescreen.this, Operator_fix_order.class);

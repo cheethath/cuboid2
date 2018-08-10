@@ -2,16 +2,18 @@ package com.vuforia.samples.OnSwap;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,8 +38,6 @@ public class Place_Order extends AppCompatActivity {
         data = findViewById(R.id.showdata);
         placeorder1 =  findViewById(R.id.placeorder);
         notify =  findViewById(R.id.updateoperator);
-        placeorder1.setBackgroundColor(Color.YELLOW);
-        notify.setBackgroundColor(Color.YELLOW);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             User_name = extras.getString("USER");
@@ -66,12 +66,9 @@ public class Place_Order extends AppCompatActivity {
         }, 3000); // 3000 milliseconds delay
 
         placeorder1.setEnabled(false);
-        placeorder1.setBackgroundColor(Color.GRAY);
-        //Intent intent = new Intent(this, com.vuforia.samples.VuforiaSamples.ui.ActivityList.ActivitySplashScreen.class);
-        Intent intent = new Intent(this, com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets.class);
-
-        startActivity(intent);
+        placeorder1.setBackgroundColor(R.drawable.my_button_disable);
     }
+
     public void send_notify_to_operator(View view) {
         HashMap<String, String> switch_list = Swi_list.get(index);
         pDialog.setMessage("Operator has been notified about the shipment and failed device.");
@@ -79,7 +76,7 @@ public class Place_Order extends AppCompatActivity {
         pDialog.show();
         notify.setEnabled(false);
         placeorder1.setEnabled(false);
-        notify.setBackgroundColor(Color.GRAY);
+        notify.setBackgroundColor(R.drawable.my_button_disable);
         new writegooglesheet(switch_list,index,User_name,"open",getApplicationContext()).execute();
         handler.postDelayed(new Runnable() {
             public void run() {

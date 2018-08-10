@@ -68,6 +68,8 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
             viewHolder.status_img = cell.findViewById(R.id.status);
             viewHolder.head_image_right_text = cell.findViewById(R.id.head_image_right_text);
             viewHolder.title_weight = cell.findViewById(R.id.title_weight);
+            viewHolder.serial_num = cell.findViewById(R.id.content_delivery_time);
+            viewHolder.status_live= cell.findViewById(R.id.content_deadline_time);
             viewHolder.content_to_address_1.setTag(position);
             viewHolder.contentRequestBtn.setTag(position);
             viewHolder.content_name_view.setTag(position);
@@ -110,13 +112,15 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
         String mac = item.getMac_address();
         viewHolder.requestsCount.setText(mac);
         viewHolder.head_image_left_text.setText(mac);
-        viewHolder.head_image_center_text.setText(item.getPledgePrice());
-        viewHolder.pledgePrice.setText(item.getPledgePrice());
+        viewHolder.head_image_center_text.setText("      ");
+        viewHolder.pledgePrice.setText("      ");
+        viewHolder.serial_num.setText(item.getPledgePrice());
      //   if(Homescreen.User_name.contains("oper"))
            viewHolder.contentRequestBtn.setText("Menu");
       //  else
       //      viewHolder.contentRequestBtn.setText("Send");
         // set custom btn handler for list item from that item
+        viewHolder.status_live.setText(item.getStatus());
         if(item.getStatus().contains("Up")) {
             viewHolder.status_img.setImageResource(R.drawable.on_perfect);
         }else {
@@ -199,5 +203,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
         ImageView status_img;
         TextView head_image_right_text;
         TextView title_weight;
+        TextView serial_num;
+        TextView status_live;
     }
 }

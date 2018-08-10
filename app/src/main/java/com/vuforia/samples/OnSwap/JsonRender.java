@@ -354,7 +354,7 @@ public class JsonRender {
                 Log.e("MASTER", "EVENT# " + event_number + "Description: " + event_description);
                 event_description = event_description.toUpperCase();
 
-                if( event_description.contains("FAILURE")) {
+                if( event_description.contains("FAULTED")) {
                     Log.e("MASTER", "Found a faulted switches with below details: ");
                     Log.e("MASTER", "EVENT# " + event_number + "Description: " + event_description);
                     return "FAILURE";

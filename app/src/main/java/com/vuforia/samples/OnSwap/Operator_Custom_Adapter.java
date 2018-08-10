@@ -32,7 +32,6 @@ public class Operator_Custom_Adapter extends ArrayAdapter<DataModel> implements 
         super(context, R.layout.operator_row_item, data);
         this.dataSet = data;
         this.mContext=context;
-
     }
 
 
@@ -78,6 +77,7 @@ public class Operator_Custom_Adapter extends ArrayAdapter<DataModel> implements 
         Animation animation = AnimationUtils.loadAnimation(mContext, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
         result.startAnimation(animation);
         lastPosition = position;
+        viewHolder.select_icon.setImageResource(dataModel.getImage());
         viewHolder.firstLine.setText(dataModel.getFirstLine());
         viewHolder.secondLine.setText(dataModel.getSecondLine());
         if(!Operator_fix_order.scanned_data.isEmpty() && (position == 1)) {

@@ -92,7 +92,7 @@ public class ListSwitchService extends Service {
 
         if(User_name.contains("admin")){
             //schedule the timer, to wake up every 5 min * (60 * 1000) # 60 sec
-            timer.schedule(timerTask, 0,5 * 60 * 1000); //
+            timer.schedule(timerTask, 0,20 * 1000); //
         }else
          {
             //schedule the timer, to wake up every 10 # 60 sec
@@ -159,6 +159,7 @@ public class ListSwitchService extends Service {
                             inet_processed = true;
                         }
                     } else {
+                        Toast.makeText(getApplicationContext(), "Check the network connection", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "rest_url is not reachable: " + rest_url);
                     }
 
@@ -173,7 +174,7 @@ public class ListSwitchService extends Service {
                 if(access_token == null) {
                     init_state=true;
                 }
-                if(access_token==null || !access_token.isEmpty()) {
+                if(access_token==null || access_token.isEmpty()) {
                     rest_url = https_str +getString(R.string.get_access_token_from_sheet)+"&sheet=Sheet2";
                     Log.d(TAG, "Getting access token from google sheet url:" + rest_url);
                     jsonStr = httpHandler.getAccessTokenFromSheet(rest_url);
@@ -201,6 +202,7 @@ public class ListSwitchService extends Service {
                     if(isSwitchaccess) {
                         jsonStr = httpHandler.getswitchFromAruba(rest_url);
                         if(jsonStr ==null || jsonStr.contains("error_code_40*")) {
+                            Log.d(TAG, "Getting access token from Aruba");
                             access_token = Get_Access_token.get_Access_token();
                             httpHandler.setAccessTokentoSheet(access_token);
                             rest_url = https_str + getString(R.string.aruba_get_switches) + access_token;
@@ -214,24 +216,27 @@ public class ListSwitchService extends Service {
                     }else {
                         jsonStr = httpHandler.getHwEvents(rest_url);
                         if(jsonStr ==null || jsonStr.contains("error_code_40*")){
+                            Log.d(TAG, "Getting access token from Aruba");
                             access_token = Get_Access_token.get_Access_token();
                             httpHandler.setAccessTokentoSheet(access_token);
                             rest_url = https_str +getString(R.string.HW_EVENTS) + access_token+"&serial="+getString(R.string.switch_serial_number);
                             Log.d(TAG, "Generated with access token aruba_rest_url is " + rest_url);
                             jsonStr = httpHandler.getHwEvents(rest_url);
+                            Log.d(TAG, "Checking for any hardware events from aruba" + rest_url);
                         }
                         if(jsonStr !=null) {
                             String Failure = JsonRender.hw_failures(jsonStr);
-                            if(Failure != null && Failure.contains("FAILURE"))
+                            if(!send_notify && Failure != null && Failure.contains("FAILURE"))
                             {
                                 for (int i = 0; i < switchList.size(); i++) {
                                     HashMap<String, String> switch_list = switchList.get(i);
                                     if (switch_list.get("serial_number").contains(getString(R.string.switch_serial_number))) {
+                                        if(!switch_list.get("faulttype").isEmpty())
+                                            break;
                                         send_notify = true;
                                         switch_list.put("faulttype","Power Fault");
                                         switchList.set(i,switch_list);
                                         /* Need to add in product */
-                                        Toast.makeText(getApplicationContext(), "Will Notify the fault sheet", Toast.LENGTH_SHORT).show();
                                    //     new writegooglesheet(switch_list,i,User_name,"open",getApplicationContext()).execute();
                                         break;
                                     }
@@ -240,6 +245,8 @@ public class ListSwitchService extends Service {
                             inet_processed = true;
                         }
                     }
+                }else {
+                    Toast.makeText(getApplicationContext(), "Check the network connection", Toast.LENGTH_SHORT).show();
                 }
             }
             return null;
@@ -265,23 +272,23 @@ public class ListSwitchService extends Service {
                 if (Admin_dashboard.pDialog != null && Admin_dashboard.pDialog.isShowing())
                     Admin_dashboard.pDialog.dismiss();
             }
-            if (User_name.contains("oper") || isSwitchaccess) {
+            if (User_name.contains("oper") || isSwitchaccess || send_notify) {
                 if (inet_processed) {
                     boolean update_ui = PushNotification();
                     if (update_ui) {
-
                         intent = new Intent(DOWNLOAD_ACTION);
                         intent.putExtra("SWI_LIST", switchList);
                         broadcastManager.sendBroadcast(intent);
+
                     }
                 }
-                Toast.makeText(getApplicationContext(), "Download successful!", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(), "Download successful!", Toast.LENGTH_SHORT).show();
             }
         }
     }
     public boolean check_any_change_in_the_list()
     {
-        if(switchList.size()==0) return false;
+        if(switchList==null || switchList.size()==0) return false;
         if(switchList.get(0).get("mac_address") == "") return false;
         int i = 0;
         for (i = 0; i < switchList.size(); i++) {
@@ -381,6 +388,7 @@ public class ListSwitchService extends Service {
         }
 
         mNotificationManager.notify(0, mBuilder.build());
+        send_notify = false;
         return TRUE;
     }
 }

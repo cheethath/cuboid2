@@ -84,7 +84,7 @@
     <string name="admin_title">Admin Dashboard</string>
     <string name="title_place_order">Place Order</string>
     <string name="title_replace_order">How to replace hardware</string>
-
+    <string name="title_scan_video">Demo to Scan the Portion of the Switch</string>
 
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
@@ -128,10 +128,10 @@
     <string name="to_badge" translatable="false">TO</string>
     <string name="delivery_date_badge" translatable="false">Serial Number</string>
     <string name="delivery_time_mock" translatable="false">SG6787F</string>
-    <string name="deadline_badge" translatable="false">REQUEST DEADLINE</string>
-    <string name="deadline_time_mock" translatable="false">24 minutes</string>
+    <string name="deadline_badge" translatable="false">Aruba Status</string>
+    <string name="deadline_time_mock" translatable="false">es</string>
     <string name="request_btn_text" translatable="false">CONFIG</string>
-    <string name="btn_annotation_mock" translatable="false">5 people have sent a request</string>
+    <string name="btn_annotation_mock" translatable="false">Data showed are copyright protected</string>
     <string name="content_from1_mock">W 90th St</string>
     <string name="content_from2_mock">New York, NY 10025</string>
     <string name="content_to1_mock">46th Ave</string>
@@ -151,6 +151,7 @@
     <string name="get_access_token_from_sheet">script.google.com/macros/s/AKfycbyj-wfwFp0w3KLkgJEA1UVzR7_1GXGxX9YzT4BSfY3wqlERuQI/exec?id=1eLKTlTgip_EfvlWANLvFgMJcoPgUQmS815DUH0DFlEE</string>
     <string name="aruba_access_token">internal-apigw.central.arubanetworks.com/oauth2/authorize/central/api/login?client_id=</string>
     <string name="aruba_get_switches">internal-apigw.central.arubanetworks.com/monitoring/v1/switches?access_token="</string>
+    <string name="HW_EVENTS">internal-apigw.central.arubanetworks.com/monitoring/v1/events?access_token=</string>
     <string name="google_sheet_id">1eLKTlTgip_EfvlWANLvFgMJcoPgUQmS815DUH0DFlEE</string>
     <string name="sheet_num">Sheet1</string>
     <string name="updating_job">Updating Job status please wait...</string>
@@ -164,7 +165,6 @@
     <string name="CLIENT_SECRET">99iCcBUY4ZwsggrnKgszr5PNE1Ri99WX</string>
     <string name="CUSTOMER_ID">alpha2_sub_749</string>
     <string name="PASSWORD">aruba@1234567</string>
-    <string name="HW_EVENTS">internal-apigw.central.arubanetworks.com/monitoring/v1/events?access_token=</string>
     <string name="switch_serial_number">SG50GPR1J8</string>
     
 </resources>

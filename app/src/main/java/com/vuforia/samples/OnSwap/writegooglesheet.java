@@ -84,6 +84,7 @@ public class writegooglesheet extends AsyncTask<String, Void, String> {
         }
         if(Operator_fix_order.pDialog!=null && Operator_fix_order.pDialog.isShowing())
             Operator_fix_order.pDialog.dismiss();
+
     }
 
     public String getPostDataString(JSONObject params) throws Exception {

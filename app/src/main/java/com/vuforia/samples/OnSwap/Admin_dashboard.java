@@ -182,15 +182,12 @@ public class Admin_dashboard extends AppCompatActivity {
         }
     }
     public void Failure_Invoke(View view) {
-        boolean i = false;
-        if (i) {
-            if (list_of_type != null && hw_fil>0) {
+        if (list_of_type != null && hw_fil>0) {
                 Intent usr = new Intent(Admin_dashboard.this, Homescreen.class);
-                usr.putExtra("STATE", "Down");
+                usr.putExtra("STATE", "Failure");
                 usr.putExtra("SWI_LIST", list_of_type);
                 usr.putExtra("USER", User_name);
                 startActivity(usr);
-            }
         }
     }
 

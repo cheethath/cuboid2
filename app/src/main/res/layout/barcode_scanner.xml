@@ -27,6 +27,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
     <Button
         android:text="Done"
         android:layout_width="wrap_content"
@@ -38,4 +39,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:id="@+id/showdata"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

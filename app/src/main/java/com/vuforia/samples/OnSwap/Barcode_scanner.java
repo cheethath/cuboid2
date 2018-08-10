@@ -3,10 +3,12 @@ package com.vuforia.samples.OnSwap;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.vision.barcode.Barcode;
@@ -23,6 +25,8 @@ public class Barcode_scanner extends AppCompatActivity implements ZXingScannerVi
     private String TAG = "OnSwap: "+Homescreen.class.getSimpleName();
     private Result scan_data;
     String barcode_data;
+    String Bolt_powerSupply = "J9830B";
+    TextView showdata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,8 @@ public class Barcode_scanner extends AppCompatActivity implements ZXingScannerVi
         setContentView(R.layout.barcode_scanner);                // Set the scanner view as the content view
         BarScanner = (ZXingScannerView)findViewById(R.id.scanner_fragment);
         barcode_data = (String)getIntent().getSerializableExtra("serial_number");
+        showdata = findViewById(R.id.showdata);
+        showdata.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -67,14 +73,25 @@ public class Barcode_scanner extends AppCompatActivity implements ZXingScannerVi
     //        Homescreen.scanned_text = scan_data.getText();
             Log.d(TAG, "scan format" + scan_data.getText());
             //need to comment
+
             Operator_fix_order.scanned_data=scan_data.getText();
-            if(barcode_data!=null && barcode_data.contains(scan_data.getText()))
+            if(Operator_fix_order.scanned_data!=null && Operator_fix_order.scanned_data.contains(Bolt_powerSupply))
             {
                 Log.d(TAG, "Data is sucess");
+                showdata.setVisibility(View.VISIBLE);
+                String place_order1 = "Bolt  :<font color='#FFEEEE'>Power Supply</font>\n";
+                String place_order2 = "Aruba :<font color='#FFEEEE'>5400R 2750W</font>";
+                showdata.setText(Html.fromHtml(place_order1+place_order2));
+                showdata.setVisibility(View.INVISIBLE);
+
                 Operator_fix_order.scanned_data=scan_data.getText();
+                // Homescreen.scanned_info=scan_data.getBarcodeFormat();
+                finish();
+            }else
+            {
+                BarScanner.startCamera();          // Start camera on resume
             }
         }
-       // Homescreen.scanned_info=scan_data.getBarcodeFormat();
-        finish();
+
     }
 }

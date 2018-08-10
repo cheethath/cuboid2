@@ -31,8 +31,9 @@
         android:layout_marginStart="17dp"
         android:onClick="place_order"
         android:text="Place  Order"
-        android:background="@color/btnRequest"
-        android:textSize="15sp"
+        android:textColor="@color/mainTextColor"
+        android:background="@drawable/mybutton"
+        android:textSize="12sp"
         tools:ignore="RtlCompat" />
 
     <Button
@@ -42,9 +43,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/placeorder"
         android:layout_marginEnd="14dp"
-        android:background="@color/btnRequest"
+        android:background="@drawable/mybutton"
+        android:textColor="@color/mainTextColor"
         android:onClick="send_notify_to_operator"
         android:text="Notify Operator"
-        android:textSize="15sp"
+        android:textSize="12sp"
         tools:ignore="RtlCompat" />
+    <!--  android:background="@color/btnRequest"-->
 </RelativeLayout>
