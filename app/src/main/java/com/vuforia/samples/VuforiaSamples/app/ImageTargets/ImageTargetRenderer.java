@@ -32,6 +32,7 @@ import com.vuforia.Vuforia;
 import com.vuforia.samples.SampleApplication.SampleAppRenderer;
 import com.vuforia.samples.SampleApplication.SampleAppRendererControl;
 import com.vuforia.samples.SampleApplication.SampleApplicationSession;
+import com.vuforia.samples.SampleApplication.utils.CubeObject;
 import com.vuforia.samples.SampleApplication.utils.CubeShaders;
 import com.vuforia.samples.SampleApplication.utils.LoadingDialogHandler;
 import com.vuforia.samples.SampleApplication.utils.MeshObject;
@@ -58,7 +59,15 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRen
     private int textureCoordHandle;
     private int mvpMatrixHandle;
     private int texSampler2DHandle;
-    
+
+    // From MultiTargets
+    // Constants:
+    private final static float kCubeScaleX = (0.055f) / 2.0f;
+    private final static float kCubeScaleY = (0.055f) / 2.0f;
+    private final static float kCubeScaleZ = 0; //(0.260f+ 0.03f) / 2.0f;
+
+    private final CubeObject cubeObject = new CubeObject();
+
     private Teapot mTeapot;
     
     private static final float BUILDING_SCALE = 0.012f;
@@ -199,6 +208,9 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRen
         Matrix44F modelMatrix;
 
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+        // added from MultiTargets
+        GLES20.glEnable(GLES20.GL_BLEND);
+        GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
 
         // handle face culling, we need to detect if we are using reflection
         // to determine the direction of the culling
@@ -234,13 +246,57 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRen
                 textureIndex = mActivityRef.get().isDeviceTrackingActive() ? 3 : textureIndex;
 
                 // Renders the augmentation
-                renderModel(projectionMatrix, devicePoseMattix.getData(), modelMatrix.getData(), textureIndex);
+                //renderModel(projectionMatrix, devicePoseMattix.getData(), modelMatrix.getData(), textureIndex);
+                textureIndex = 0;
+
+                // Copied and pasted from MultiTargets
+                Matrix44F modelViewMatrix_Vuforia = Tool
+                        .convertPose2GLMatrix(result.getPose());
+                float[] modelViewMatrix = modelViewMatrix_Vuforia.getData();
+
+                float[] modelViewProjection = new float[16];
+                Matrix.scaleM(modelViewMatrix, 0, kCubeScaleX, kCubeScaleY,
+                        kCubeScaleZ);
+                Matrix.multiplyMM(modelViewProjection, 0, projectionMatrix, 0, modelViewMatrix, 0);
+
+                GLES20.glUseProgram(shaderProgramID);
+
+                // Draw the cube:
+
+                GLES20.glEnable(GLES20.GL_CULL_FACE);
+                GLES20.glCullFace(GLES20.GL_BACK);
+
+                GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                        false, 0, cubeObject.getVertices());
+                GLES20.glVertexAttribPointer(textureCoordHandle, 2,
+                        GLES20.GL_FLOAT, false, 0, cubeObject.getTexCoords());
+
+                GLES20.glEnableVertexAttribArray(vertexHandle);
+                GLES20.glEnableVertexAttribArray(textureCoordHandle);
+
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
+                        mTextures.get(textureIndex).mTextureID[0]);
+                GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
+                        modelViewProjection, 0);
+                GLES20.glUniform1i(texSampler2DHandle, 0);
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES,
+                        cubeObject.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                        cubeObject.getIndices());
+
+                GLES20.glDisable(GLES20.GL_CULL_FACE);
+
+                textureIndex++;
+                if(textureIndex > 2) {
+                    textureIndex = 0;
+                }
 
                 SampleUtils.checkGLError("Image Targets renderFrame");
             }
         }
 
         GLES20.glDisable(GLES20.GL_DEPTH_TEST);
+        GLES20.glDisable(GLES20.GL_BLEND);
     }
 
 

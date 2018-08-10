@@ -64,8 +64,13 @@ public class Place_Order extends AppCompatActivity {
                 pDialog.dismiss();
             }
         }, 3000); // 3000 milliseconds delay
+
         placeorder1.setEnabled(false);
         placeorder1.setBackgroundColor(Color.GRAY);
+        //Intent intent = new Intent(this, com.vuforia.samples.VuforiaSamples.ui.ActivityList.ActivitySplashScreen.class);
+        Intent intent = new Intent(this, com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets.class);
+
+        startActivity(intent);
     }
     public void send_notify_to_operator(View view) {
         HashMap<String, String> switch_list = Swi_list.get(index);
