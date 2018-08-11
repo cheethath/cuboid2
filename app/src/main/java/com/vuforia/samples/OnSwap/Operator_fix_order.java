@@ -54,7 +54,8 @@ public class Operator_fix_order extends Activity {
       //  LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         dataModels.add(new DataModel(R.drawable.barcode,"Open Bar Code Scanner", "Identify the received HW is valid"));
-        dataModels.add(new DataModel(R.drawable.swi_5400,"Scan the Switch", "Video will display how to scan the switch"));
+        dataModels.add(new DataModel(R.drawable.swi_5400,"Demo to Scan the Switch", "Video will display how to scan the switch"));
+        dataModels.add(new DataModel(R.drawable.swi_5400,"Scan the Switch", "Scan the chassislocate led from camera"));
         dataModels.add(new DataModel(R.drawable.tech,"Replace the Hardware", "Video will display to replace the hardware"));
         dataModels.add(new DataModel(R.drawable.shareinfo,"Updating Hardware has replaced", "It will send update to the admin"));
         adapter= new Operator_Custom_Adapter(dataModels,getApplicationContext());
@@ -78,7 +79,7 @@ public class Operator_fix_order extends Activity {
                     Log.d(TAG, "Barcode_scanning selected");
                     break;
                 case 1:
-                    index_pos = 1;
+
                     if(!scanned_data.isEmpty()) {
                         Intent intent = new Intent(Operator_fix_order.this, Play_Video.class);
                         intent.putExtra("selected_video",0);
@@ -87,26 +88,24 @@ public class Operator_fix_order extends Activity {
                     {
                         Toast.makeText(getApplicationContext(), "Scanned data is invalid", Toast.LENGTH_SHORT).show();
                     }
-                    /*
-                    if(scanned_data.isEmpty()){
-                        Toast.makeText(getApplicationContext(), "Scanned data is not valid", Toast.LENGTH_SHORT).show();
-                    }else {
-                        if (ContextCompat.checkSelfPermission(Operator_fix_order.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    break;
+                case 2:
+                    index_pos = 1;
+                    if (ContextCompat.checkSelfPermission(Operator_fix_order.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                             ActivityCompat.requestPermissions(Operator_fix_order.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
                         } else {
                             Intent intent = new Intent(Operator_fix_order.this, com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets.class);
                             startActivity(intent);
                         }
-                    }*/
                     Log.d(TAG, "Launching Vuforia selected");
                     break;
-                case 2:
+                case 3:
                     Log.d(TAG, "Replace the hardware");
                     Intent intent = new Intent(Operator_fix_order.this, Play_Video.class);
                     intent.putExtra("selected_video",1);
                     startActivity(intent);
                     break;
-                case 3:
+                case 4:
                     Log.d(TAG, "Update the admin");
                     pDialog.setMessage(getString(R.string.updating_job));
                     pDialog.setCancelable(false);
