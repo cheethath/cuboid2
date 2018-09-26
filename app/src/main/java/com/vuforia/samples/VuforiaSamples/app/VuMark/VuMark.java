@@ -191,6 +191,26 @@ public class VuMark extends Activity implements SampleApplicationControl,
     {
         mTextures.add(Texture.loadTextureFromApk("vumark_texture.png",
                 getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_01.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_02.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_03.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_04.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_05.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_06.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_07.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_08.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_09.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture_10.png",
+                getAssets()));
     }
     
     
@@ -322,7 +342,10 @@ public class VuMark extends Activity implements SampleApplicationControl,
                 Animation bottomUp = AnimationUtils.loadAnimation(context, R.anim.bottom_up);
 
                 _textType.setText(type);
-                _textValue.setText(value);
+
+                String[] arrOfStr = value.split("VuMark");
+
+                _textValue.setText(arrOfStr[1]);
 
                 if (bitmap != null)
                 {

@@ -337,15 +337,15 @@ public class VuMarkRenderer implements GLSurfaceView.Renderer, SampleAppRenderer
                 continue;
             }
 
-            renderModel(projectionMatrix, devicePoseMatrix.getData(), modelViewMatrix, isMainVuMark);
-            SampleUtils.checkGLError("VuMark Render Frame");
+            renderModel(projectionMatrix, devicePoseMatrix.getData(), modelViewMatrix, isMainVuMark, markerType, markerValue);
+            SampleUtils.checkGLError("sree VuMark Render Frame");
         }
 
         if(gotVuMark)
         {
             // If we have a detection, let's make sure
             // the card is visible
-            mActivity.showCard(markerType, markerValue, markerBitmap);
+            //mActivity.showCard(markerType, markerValue, markerBitmap);
             currentVumarkIdOnCard = markerValue;
         }
         else
@@ -364,11 +364,20 @@ public class VuMarkRenderer implements GLSurfaceView.Renderer, SampleAppRenderer
     }
 
 
-    private void renderModel(float[] projectionMatrix, float[] viewMatrix, float[] modelMatrix, boolean isMainVuMark)
+    private void renderModel(float[] projectionMatrix, float[] viewMatrix, float[] modelMatrix, boolean isMainVuMark, String markType, String markValue)
     {
         int textureIndex = 0;
         float[] modelViewProjection = new float[16];
 
+        // get index of the texture to load
+        if (isMainVuMark && markValue.contains("VuMark")){
+            String[] arrOfStr = markValue.split("VuMark");
+            Integer i = Integer.parseInt(arrOfStr[1]);
+            if (i > 0 && i <=10) {
+                textureIndex = i;
+                Log.d(LOGTAG, "sree textureIndex = " + textureIndex);
+            }
+        }
         // Combine device pose (view matrix) with model matrix
         Matrix.multiplyMM(modelMatrix, 0, viewMatrix, 0, modelMatrix, 0);
 

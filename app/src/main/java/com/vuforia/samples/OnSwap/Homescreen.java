@@ -228,8 +228,8 @@ Homescreen extends AppCompatActivity {
         switch (Index) {
             case 1:
                 Intent usr = new Intent(Homescreen.this, Barcode_scanner.class);
-                usr.putExtra("USER" , "oper");
-                usr.putExtra("Index_choosed" ,Index_on_list);
+                usr.putExtra("USER " , "oper");
+                usr.putExtra("Index " ,Index_on_list);
                 startActivity(usr);
                 break;
             case 3:

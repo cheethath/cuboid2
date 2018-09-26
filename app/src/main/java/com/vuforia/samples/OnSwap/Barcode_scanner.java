@@ -77,7 +77,7 @@ public class Barcode_scanner extends AppCompatActivity implements ZXingScannerVi
             Operator_fix_order.scanned_data=scan_data.getText();
             if(Operator_fix_order.scanned_data!=null && Operator_fix_order.scanned_data.contains(Bolt_powerSupply))
             {
-                Log.d(TAG, "Data is sucess");
+                Log.d(TAG, "Successfully read barcode");
                 showdata.setVisibility(View.VISIBLE);
                 String place_order1 = "Bolt  :<font color='#FFEEEE'>Power Supply</font>\n";
                 String place_order2 = "Aruba :<font color='#FFEEEE'>5400R 2750W</font>";

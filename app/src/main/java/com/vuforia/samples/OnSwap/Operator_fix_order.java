@@ -94,7 +94,8 @@ public class Operator_fix_order extends Activity {
                     if (ContextCompat.checkSelfPermission(Operator_fix_order.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                             ActivityCompat.requestPermissions(Operator_fix_order.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
                         } else {
-                            Intent intent = new Intent(Operator_fix_order.this, com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets.class);
+                            // Intent intent = new Intent(Operator_fix_order.this, com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets.class);
+                            Intent intent = new Intent(Operator_fix_order.this, com.vuforia.samples.VuforiaSamples.app.VuMark.VuMark.class);
                             startActivity(intent);
                         }
                     Log.d(TAG, "Launching Vuforia selected");
@@ -129,7 +130,8 @@ public class Operator_fix_order extends Activity {
                     usr.putExtra("serial_number", Barcode_data);
                     startActivity(usr);
                 }else if(index_pos == 1) {
-                    Intent intent = new Intent(this, com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets.class);
+                    //Intent intent = new Intent(this, com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets.class);
+                    Intent intent = new Intent(Operator_fix_order.this, com.vuforia.samples.VuforiaSamples.app.VuMark.VuMark.class);
                     startActivity(intent);
                 }
             } else {
